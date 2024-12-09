@@ -1,0 +1,17 @@
+{
+  "name": "knd_autho_filter_generator",
+  "version": "1.0.0",
+  "description": "generator of new filters for knd app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index_dev.js"
+  },
+  "author": "Andrey Elfimov",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "type": "module"
+  
+}

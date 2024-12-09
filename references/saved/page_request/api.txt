@@ -1,0 +1,11 @@
+you need to add this to api.dart:
+
+0. add this if needed, name '_AnyPageApi' as relative filter page api class name:
+
+    ///апи страницы
+    final _AnyPageApi _anyPageApi = _AnyPageApi();
+
+
+1. replace '_anyPageApi' to the relative name of '_AnyFiltersApi' object
+  Future<dynamic> <LoadRequestAPIMethodName>(FiltersModel filters) async =>
+      _anyPageApi.<LoadRequestAPIMethodName>(filters);

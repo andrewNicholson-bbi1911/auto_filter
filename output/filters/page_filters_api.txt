@@ -1,0 +1,26 @@
+part of '../../api.dart';
+
+class _AnyFiltersApi extends _ApiSource {
+  ///Фильтр "Разрешительный орган"
+  Future<dynamic> getLicensorTypeFilter() async {
+    String url = "$baseUrl/kno/filters/permission-authority";
+    try {
+      dynamic response = await httpClient.getRequest(url, 
+      headers: {
+        HttpHeaders.contentTypeHeader: "application/json",
+      },
+      ///ToDo: you can add something in body if needed
+      //body: jsonEncode({"field_1": [], "field_2": []}),
+      );
+
+      log.i("{{'green' '[Api]' }} filters licensor loaded: $response");
+      return json.decode(response["body"])["data"];
+    } catch (e, st) {
+      log.apiError(
+          "{{'green' '[Api]' }} filters error licensor load: $e",
+          st,
+          url);
+      return {};
+    }
+  }
+}

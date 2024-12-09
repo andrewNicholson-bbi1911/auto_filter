@@ -1,0 +1,31 @@
+enum FilterTypes {
+    <FilterEnumType>,
+}
+
+class FiltersModel {
+    FilterModel<<ModelName>>>? <FiltersType>;
+
+
+    Map<FilterTypes, FilterModel> get map {
+    //...
+        if (<FiltersType> != null) {
+        map[<FiltersType>!.type] = <FiltersType>!;
+        }
+    //...
+    }
+
+
+/// Добавить только в частном случае:
+    Map<String, dynamic> toMap(
+    List<FilterTypes> availableFilters, [
+    bool forFilters = false,
+    int page = 0,
+    int pageSize = 0,
+  ]) {
+    //...
+    ///Частные случаи парсинга
+    if (<FiltersType> != null && availableFilters.contains(FilterTypes.<FilterEnumType>)) {
+      //do something
+    }
+    //...
+}

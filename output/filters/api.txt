@@ -1,0 +1,11 @@
+you need to add this to api.dart:
+
+0. add this if needed, name '_AnyFiltersApi' as relative filter page api class name:
+
+    ///Фильтры
+    final _AnyFiltersApi _anyPageFiltersApi = _AnyFiltersApi();
+
+1. replace '_anyPageFiltersApi' to the relative name of '_AnyFiltersApi' object
+
+  Future<dynamic> getLicensorTypeFilter() async =>
+      _anyPageFiltersApi.getLicensorTypeFilter();

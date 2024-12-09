@@ -1,0 +1,14 @@
+{
+    //название метода загрузки респонза в репозитории [load<Smth>Data]
+    "loadRequesRepoMethodName": "<LoadRequestRepositoryMethodName>",
+
+    //название метода загрузки респонза в репозитории [load<Smth>Data]
+    "loadRequesApiMethodName": "<LoadRequestAPIMethodName>",
+
+    //добавочный url апи
+    "additionalUrl": "<AdditionalUrl>",
+
+    //основное поле в запросе для данных (обычно data):
+    "mainDataField": "<MainDataField>"
+
+}

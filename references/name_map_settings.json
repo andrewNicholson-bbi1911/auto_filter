@@ -1,0 +1,12 @@
+{
+    "data_model_name": "<ModelName>",
+    "filter_request_value_name": "<RequestValueName>",
+    "filter_title_name": "<FilterTitleName>",
+    "filter_search_label_name": "<FilterSearchLableName>",
+    "api_filter_load_method_name": "<ApiLoadFilterName>",
+    "filter_additional_url": "<ExtraUrl>",
+    "repo_filter_load_method_name": "<RepoLoadFilterName>",
+    "repo_filter_empty_getter_name": "<RepoEmptyFilterGetterName>",
+    "filter_enum_type_name": "<FilterEnumType>",
+    "filters_type_name": "<FiltersType>"
+}

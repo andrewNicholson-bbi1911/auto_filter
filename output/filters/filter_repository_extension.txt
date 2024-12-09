@@ -1,0 +1,29 @@
+add this to filters_repository:
+
+1.
+    FilterModel<LicensorModel> get emptyLicensor => FilterModel(
+        data: [],
+        initial: [],
+        type: FilterTypes.licensor,
+        requestValueName: "licensor",
+        title: "Разрешительный орган",
+        searchLabel: "Поиск",
+    );
+
+2.
+    Future<FilterModel<LicensorModel>> loadLicensor() async {
+        List<dynamic> rawData = await api.getLicensorTypeFilter();
+        List<LicensorModel> data =
+            rawData.map((value) => LicensorModel.fromMap(value)).toList();
+
+        _filters.licensor ??= emptyLicensor;
+        _filters.licensor!.data = data;
+
+        return _filters.licensor!;
+    }
+
+3. add thist to getData()
+
+    if (filterTypes.contains(FilterTypes.licensor) || loadAll) {
+        loadMethods.add(loadLicensor());
+      }

@@ -1,0 +1,26 @@
+part of '../../api.dart';
+
+class _AnyFiltersApi extends _ApiSource {
+  ///Фильтр "<FilterTitleName>"
+  Future<dynamic> <ApiLoadFilterName>() async {
+    String url = "$baseUrl/<ExtraUrl>";
+    try {
+      dynamic response = await httpClient.getRequest(url, 
+      headers: {
+        HttpHeaders.contentTypeHeader: "application/json",
+      },
+      ///ToDo: you can add something in body if needed
+      //body: jsonEncode({"field_1": [], "field_2": []}),
+      );
+
+      log.i("{{'green' '[Api]' }} filters <RequestValueName> loaded: $response");
+      return json.decode(response["body"])["data"];
+    } catch (e, st) {
+      log.apiError(
+          "{{'green' '[Api]' }} filters error <RequestValueName> load: $e",
+          st,
+          url);
+      return {};
+    }
+  }
+}

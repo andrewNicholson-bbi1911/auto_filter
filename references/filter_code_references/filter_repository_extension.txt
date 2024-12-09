@@ -1,0 +1,29 @@
+add this to filters_repository:
+
+1.
+    FilterModel<<ModelName>> get <RepoEmptyFilterGetterName> => FilterModel(
+        data: [],
+        initial: [],
+        type: FilterTypes.<FilterEnumType>,
+        requestValueName: "<RequestValueName>",
+        title: "<FilterTitleName>",
+        searchLabel: "<FilterSearchLableName>",
+    );
+
+2.
+    Future<FilterModel<<ModelName>>> <RepoLoadFilterName>() async {
+        List<dynamic> rawData = await api.<ApiLoadFilterName>();
+        List<<ModelName>> data =
+            rawData.map((value) => <ModelName>.fromMap(value)).toList();
+
+        _filters.<FiltersType> ??= <RepoEmptyFilterGetterName>;
+        _filters.<FiltersType>!.data = data;
+
+        return _filters.<FiltersType>!;
+    }
+
+3. add thist to getData()
+
+    if (filterTypes.contains(FilterTypes.<FilterEnumType>) || loadAll) {
+        loadMethods.add(<RepoLoadFilterName>());
+      }

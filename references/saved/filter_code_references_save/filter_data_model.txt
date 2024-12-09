@@ -1,0 +1,18 @@
+import 'package:knd/data/models/filters/abstract_filter.dart';
+import 'dart:convert';
+
+class <ModelName> extends Filter {
+  <ModelName>({
+    required super.id,
+    required super.value,
+  });
+
+  factory <ModelName>.fromJson(String str) =>
+      <ModelName>.fromMap(json.decode(str));
+
+  factory <ModelName>.fromMap(Map<String, dynamic> json) =>
+      <ModelName>(
+        id: "${json["value"]}",
+        value: json["label"],
+      );
+}

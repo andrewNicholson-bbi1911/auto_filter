@@ -1,0 +1,50 @@
+Добавь в основной метод загрузки в репозитории (замени _AnyPageModel на соответствующую модель):
+
+Future<void> mainLoadMethod(
+    FiltersModel filters,
+    _AnyPageModel dynamicPageModel,
+    ...,
+  ){
+    try{
+        List<Future<void>> loadMethods = [];
+... Вот эту часть:
+    
+    loadMethods.add(<LoadRequestRepositoryMethodName>(filters, _AnyPageModel));
+
+...
+    }catch(e){
+
+    }
+  }
+
+
+Добавь сам метод загрузки респонза:
+
+Future<void> <LoadRequestRepositoryMethodName>(
+      FiltersModel filters, DynamicContentDataModel model,
+      [/* any extra arguments */]) async {
+    try {
+      mixLog.i(
+          "{{'violet' '[_AnyPageRepository]' }} <LoadRequestRepositoryMethodName>() inited");
+
+      var <MainDataField> = await mixApi.getKndDynamicViolationsCount(filters);
+
+      mixLog.i(
+          "{{'violet' '[_AnyPageRepository]' }} <LoadRequestRepositoryMethodName>(): loaded response <MainDataField>:$<MainDataField>");
+
+        ///ToDo: написать загрузку данных 
+        ///из сырых данных в [<MainDataField>] в [model]
+        
+      /* 
+        
+        *Тут мы загружаем данные в саму модель*
+
+      */
+
+
+    } catch (_, st) {
+      mixLog.e(
+          "{{'violet' '[_AnyPageRepository]' }} <LoadRequestRepositoryMethodName> load error: $_",
+          st);
+    }
+  }

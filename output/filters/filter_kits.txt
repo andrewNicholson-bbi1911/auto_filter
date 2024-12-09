@@ -1,0 +1,5 @@
+Dont forget to add filter type:
+
+    FilterTypes.licensor
+
+to every needed kit of filter_kits.txt

@@ -1,0 +1,18 @@
+import 'package:knd/data/models/filters/abstract_filter.dart';
+import 'dart:convert';
+
+class LicensorModel extends Filter {
+  LicensorModel({
+    required super.id,
+    required super.value,
+  });
+
+  factory LicensorModel.fromJson(String str) =>
+      LicensorModel.fromMap(json.decode(str));
+
+  factory LicensorModel.fromMap(Map<String, dynamic> json) =>
+      LicensorModel(
+        id: "${json["value"]}",
+        value: json["label"],
+      );
+}

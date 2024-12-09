@@ -1,0 +1,39 @@
+Добавь этот метод всоответствующую страницу репозитория
+
+
+///Данные поиска представления "По видам профилактик"
+  Future<dynamic> <LoadRequestAPIMethodName>(FiltersModel filters) async {
+    String url =
+        "$baseUrl/<AdditionalUrl>";
+    try {
+
+        ///ToDo: добавь соответствующий фильтр кит
+      Map<String, dynamic> map = filters.toMap(FilterKits./*блаблабла*/);
+
+        ///ToDo: добавь при необходимости доп параметры:
+        /*
+      if (filters.extraFilterParams["value"] != null) {
+        map["value"] = filters.extraFilterParams["value"];
+      }
+
+      map["sorting"] = {"preventiveControlCnt": "desc"};
+        */
+
+      dynamic response = await httpClient.postRequest(url,
+          headers: {
+            HttpHeaders.contentTypeHeader: "application/json",
+          },
+          body: jsonEncode(map));
+
+      log.i(
+          "{{'green' '[Api]' }} <LoadRequestAPIMethodName>() loaded: $response");
+
+      return json.decode(response["body"])["<MainDataField>"];
+    } catch (e, st) {
+      log.apiError(
+          "{{'green' '[Api]' }} <LoadRequestAPIMethodName>() load error: $e",
+          st,
+          url);
+      return {};
+    }
+  }
